@@ -4,3 +4,4 @@ game.state.add('Menu', boil.Menu);
 game.state.add('Play', boil.Play);
 game.state.add('GameOver', boil.GameOver);
 game.state.start('Load'); 
+var x = 'emily'
