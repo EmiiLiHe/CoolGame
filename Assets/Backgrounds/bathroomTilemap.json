@@ -23,11 +23,11 @@
         {
          "columns":15,
          "firstgid":1,
-         "image":"CoolGame\/Assets\/Backgrounds\/bathroom.png",
+         "image":"bathroomTileset.png",
          "imageheight":1500,
          "imagewidth":1500,
          "margin":0,
-         "name":"bathroom",
+         "name":"bathroomTileset",
          "properties":
             {
 
