@@ -1,4 +1,4 @@
-boil.Play = function(){
+boil.PlayMush = function(){
     var ptag;
 };
 

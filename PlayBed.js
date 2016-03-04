@@ -1,11 +1,11 @@
-boil.Play = function(){};
+boil.PlayBed = function(){};
 
-var ptag, bathroom;
+var ptag, bedroom;
 
-boil.Play.prototype = {
+boil.PlayBed.prototype = {
     preload: function(){
-        game.load.tilemap('bathroomTilemap', 'Assets/Backgrounds/bathroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
-        game.load.image('bathroomTileset', 'Assets/Backgrounds/bathroomTileset.png');
+        game.load.tilemap('bedroomTilemap', 'Assets/Backgrounds/bedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
+        game.load.image('bedroomTileset', 'Assets/Backgrounds/bedroomTileset.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',450,970);
          
     },
@@ -13,20 +13,20 @@ boil.Play.prototype = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         //game.world.setBounds(0,0, 1500,1500);
         //game.stage.backgroundColor = '#A80000';
-        console.log('You are in the Play state');        
-        var map = game.add.tilemap('bathroomTilemap');
-        map.addTilesetImage('bathroomTileset');
-        bathroom = map.createLayer('bathroom');
+        console.log('You are in the PlayBed state');        
+        var map = game.add.tilemap('bedroomTilemap');
+        map.addTilesetImage('bedroomTileset');
+        bathroom = map.createLayer('bedroom');
         ptag = game.add.sprite(game.world.centerX-650,game.world.centerY+300, 'ptag');
         ptag.animations.add('walk',[0,1,2,3,4,5,6,7]);
         game.physics.enable(ptag);
         ptag.scale.setTo(-.5,.5);
         ptag.anchor.setTo(0.5);
-        map.setCollisionBetween(1,25,'bathroom'); 
-    
-//      if (ptag.x<-675){
-//       game.state.start('PlayBed');
-//       };
+        //map.setCollisionBetween(1,25,'bathroom');       
+        
+//        game.input.keyboard.addKey(Phaser.Keyboard.SHIFT).onDown.add(function(){
+//            game.state.start('PlayMush');
+//        });
         
              
 },
@@ -40,10 +40,7 @@ update: function(){
         ptag.body.velocity.x=-300;
         ptag.animations.play('walk', 20, true);
         ptag.scale.setTo(.5,.5)
-        if(ptag.x < -100){
-            game.state.start('PlayBed');
-        }
-    }
+       }
     else{
         ptag.animations.stop('walk');
         ptag.frame = 0;
@@ -60,6 +57,6 @@ update: function(){
     else{
         ptag.body.velocity.y=0;
 }
-    game.physics.arcade.collide(ptag,bathroom)
+    //game.physics.arcade.collide(ptag,bathroom)
     }
 };
