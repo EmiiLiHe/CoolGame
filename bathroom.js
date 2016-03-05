@@ -1,11 +1,11 @@
-boil.bedroom = function(){};
+boil.bathroom = function(){};
 
-var ptag, bedroom;
+var ptag, bathroom;
 
-boil.bedroom.prototype = {
+boil.bathroom.prototype = {
     preload: function(){
-        game.load.tilemap('bedroomTilemap', 'Assets/Backgrounds/bedroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
-        game.load.image('bedroomTileset', 'Assets/Backgrounds/bedroomTileset.png');
+        game.load.tilemap('bathroomTilemap', 'Assets/Backgrounds/bathroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
+        game.load.image('bathroomTileset', 'Assets/Backgrounds/bathroomTileset.png');
         game.load.spritesheet('ptag', 'Assets/Spritesheets/ptag.png',450,970);
          
     },
@@ -13,16 +13,16 @@ boil.bedroom.prototype = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         //game.world.setBounds(0,0, 1500,1500);
         //game.stage.backgroundColor = '#A80000';
-        console.log('You are in the bedroom state');        
-        var map = game.add.tilemap('bedroomTilemap');
-        map.addTilesetImage('bedroomTileset');
-        bathroom = map.createLayer('bedroom');
+        console.log('You are in the bathroom state');        
+        var map = game.add.tilemap('bathroomTilemap');
+        map.addTilesetImage('bathroomTileset');
+        bathroom = map.createLayer('bathroom');
         ptag = game.add.sprite(game.world.centerX-650,game.world.centerY+300, 'ptag');
         ptag.animations.add('walk',[0,1,2,3,4,5,6,7]);
         game.physics.enable(ptag);
         ptag.scale.setTo(-.5,.5);
         ptag.anchor.setTo(0.5);
-        map.setCollisionBetween(1,25,'bedroom');       
+        map.setCollisionBetween(1,25,'bathroom');       
         
              
 },
@@ -55,8 +55,8 @@ update: function(){
 }
     game.physics.arcade.collide(ptag,bathroom)
     
-//     if (ptag.x< 15){
-//     changeState('mBathroom');
-//     };
+     if (ptag.x< 15){
+     changeState('bedroom');
+     };
     }
 };
