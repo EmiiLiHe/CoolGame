@@ -24,10 +24,6 @@ boil.Play.prototype = {
         ptag.anchor.setTo(0.5);
         map.setCollisionBetween(1,25,'bathroom');       
         
-//        game.input.keyboard.addKey(Phaser.Keyboard.SHIFT).onDown.add(function(){
-//            game.state.start('PlayMush');
-//        });
-        
              
 },
 update: function(){
@@ -58,5 +54,9 @@ update: function(){
         ptag.body.velocity.y=0;
 }
     game.physics.arcade.collide(ptag,bathroom)
+    
+     if (ptag.x< 15){
+     changeState('Bedroom');
+     };
     }
 };
