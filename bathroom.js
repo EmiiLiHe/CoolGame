@@ -1,8 +1,8 @@
-boil.Play = function(){};
+boil.bathroom = function(){};
 
 var ptag, bathroom;
 
-boil.Play.prototype = {
+boil.bathroom.prototype = {
     preload: function(){
         game.load.tilemap('bathroomTilemap', 'Assets/Backgrounds/bathroomTilemap.json', null,Phaser.Tilemap.TILED_JSON);
         game.load.image('bathroomTileset', 'Assets/Backgrounds/bathroomTileset.png');
@@ -13,7 +13,7 @@ boil.Play.prototype = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         //game.world.setBounds(0,0, 1500,1500);
         //game.stage.backgroundColor = '#A80000';
-        console.log('You are in the Play state');        
+        console.log('You are in the bathroom state');        
         var map = game.add.tilemap('bathroomTilemap');
         map.addTilesetImage('bathroomTileset');
         bathroom = map.createLayer('bathroom');
@@ -22,11 +22,15 @@ boil.Play.prototype = {
         game.physics.enable(ptag);
         ptag.scale.setTo(-.5,.5);
         ptag.anchor.setTo(0.5);
+<<<<<<< HEAD:Play.js
         map.setCollisionBetween(1,25,'bathroom'); 
     
 //      if (ptag.x<-675){
 //       game.state.start('PlayBed');
 //       };
+=======
+        map.setCollisionBetween(1,25,'bathroom');       
+>>>>>>> origin/master:bathroom.js
         
              
 },
@@ -61,5 +65,9 @@ update: function(){
         ptag.body.velocity.y=0;
 }
     game.physics.arcade.collide(ptag,bathroom)
+    
+     if (ptag.x< 15){
+     changeState('bedroom');
+     };
     }
 };
